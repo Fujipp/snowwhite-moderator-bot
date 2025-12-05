@@ -1,7 +1,11 @@
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const { displayStartupMessage } = require('./utils/banner');
 require('dotenv').config();
+
+// Display startup message
+displayStartupMessage();
 
 const client = new Client({ 
   intents: [

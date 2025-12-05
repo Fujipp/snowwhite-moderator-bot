@@ -5,14 +5,21 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "deploy": "node src/deploy-commands.js"
   },
-  "keywords": ["discord", "bot", "moderator"],
+  "keywords": [
+    "discord",
+    "bot",
+    "moderator"
+  ],
   "author": "Fujipp",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^5.6.2",
     "discord.js": "^14.14.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "figlet": "^1.9.4"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

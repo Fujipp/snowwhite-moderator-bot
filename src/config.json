@@ -1,0 +1,15 @@
+{
+  "prefix": "!",
+  "modLogChannel": "",
+  "welcomeChannel": "",
+  "welcomeMessage": "Welcome to our server!",
+  "autoMod": {
+    "enabled": true,
+    "spamThreshold": 5,
+    "profanityFilter": true
+  },
+  "roles": {
+    "modRole": "",
+    "adminRole": ""
+  }
+}
