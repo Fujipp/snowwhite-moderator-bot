@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const configPath = path.join(__dirname, 'config.json');
+const configPath = path.join(__dirname, '..', '..', 'data', 'config.json');
 
 class ConfigManager {
   constructor() {
@@ -10,6 +10,9 @@ class ConfigManager {
 
   load() {
     try {
+      if (!fs.existsSync(configPath)) {
+        return {};
+      }
       const data = fs.readFileSync(configPath, 'utf8');
       return JSON.parse(data);
     } catch (error) {
@@ -29,38 +32,19 @@ class ConfigManager {
   }
 
   get(key) {
-    return this.getNestedValue(this.config, key.split('.'));
+    if (!key) return this.config;
+    return key.split('.').reduce((acc, cur) => (acc && acc[cur] !== undefined ? acc[cur] : undefined), this.config);
   }
 
   set(key, value) {
     const keys = key.split('.');
     let current = this.config;
-    
     for (let i = 0; i < keys.length - 1; i++) {
-      if (!current[keys[i]]) {
-        current[keys[i]] = {};
-      }
+      if (!current[keys[i]]) current[keys[i]] = {};
       current = current[keys[i]];
     }
-    
     current[keys[keys.length - 1]] = value;
     return this.save();
-  }
-
-  getAll() {
-    return this.config;
-  }
-
-  getNestedValue(obj, keys) {
-    let current = obj;
-    for (const key of keys) {
-      if (current[key] !== undefined) {
-        current = current[key];
-      } else {
-        return undefined;
-      }
-    }
-    return current;
   }
 }
 

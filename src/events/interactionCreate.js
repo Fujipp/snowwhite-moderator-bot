@@ -1,40 +1,45 @@
 const { Events, MessageFlags } = require('discord.js');
+const configCommand = require('../commands/config');
 
 module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
-    if (!interaction.isChatInputCommand()) return;
-
-    const command = interaction.client.commands.get(interaction.commandName);
-    if (!command) {
-      console.warn(`Command not found: ${interaction.commandName}`);
-      return;
-    }
-
     try {
-      await command.execute(interaction);
+      // 1) Slash Command
+      if (interaction.isChatInputCommand()) {
+        const command = interaction.client.commands.get(interaction.commandName);
+        if (!command) return;
+        await command.execute(interaction);
+        return;
+      }
+
+      if (interaction.isButton()) {
+        if (interaction.customId.startsWith('config_')) {
+          await configCommand.handleButton(interaction);
+        }
+        return;
+      }
+
+      if (interaction.isModalSubmit()) {
+        if (interaction.customId.startsWith('modal_')) {
+          await configCommand.handleModal(interaction);
+        }
+        return;
+      }
+
     } catch (error) {
       console.error('Error executing command:', error);
-      
-      try {
-        // Check if interaction has been responded to
-        if (interaction.replied) {
-          await interaction.followUp({ 
-            content: '❌ There was an error executing this command!',
-            flags: MessageFlags.Ephemeral
-          });
-        } else if (interaction.deferred) {
-          await interaction.editReply({ 
-            content: '❌ There was an error executing this command!'
-          });
-        } else {
-          await interaction.reply({ 
-            content: '❌ There was an error executing this command!',
-            flags: MessageFlags.Ephemeral
-          });
-        }
-      } catch (replyError) {
-        console.error('Error sending error message:', replyError);
+
+      const payload = {
+        content: '❌ There was an error executing this action!',
+        flags: MessageFlags.Ephemeral
+      };
+
+      // กัน 40060
+      if (interaction.deferred || interaction.replied) {
+        await interaction.followUp(payload).catch(() => {});
+      } else {
+        await interaction.reply(payload).catch(() => {});
       }
     }
   }

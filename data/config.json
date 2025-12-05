@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allowedRoles": [
+      "1398048049858740364"
+    ],
+    "allowedUsers": [
+      "1108816021915176962",
+      "1308478122705813616"
+    ]
+  },
+  "features": {
+    "creditReply": {
+      "enabled": true,
+      "channelId": "1397717677174161580",
+      "messageCount": 17,
+      "defaultRoleId": "1397614918731038870",
+      "reactions": [
+        "<:Ts_22_discord_4plus:1397892632960831548>",
+        "<a:Ts_29_discord_star7:1399003266725052510>"
+      ],
+      "replyMessage": "<a:Ts_29_discord_star7:1399003266725052510> **𝖳𝗁𝖺𝗇𝗄 𝗒𝗈𝗎 𝖿𝗈𝗋 support ܁ . ⊹**",
+      "deleteOldReply": true,
+      "lastBotMessageId": "1446427129851154493"
+    }
+  }
+}
