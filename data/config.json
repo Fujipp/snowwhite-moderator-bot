@@ -16,11 +16,45 @@
       "defaultRoleId": "1397614918731038870",
       "reactions": [
         "<:Ts_22_discord_4plus:1397892632960831548>",
-        "<a:Ts_29_discord_star7:1399003266725052510>"
+        "<a:Ts_29_discord_star8:1399003269216469133>"
       ],
       "replyMessage": "<a:Ts_29_discord_star7:1399003266725052510> **𝖳𝗁𝖺𝗇𝗄 𝗒𝗈𝗎 𝖿𝗈𝗋 support ܁ . ⊹**",
       "deleteOldReply": true,
       "lastBotMessageId": "1446427129851154493"
+    },
+    "status": {
+      "channelId": "1397715231920357376",
+      "messageId": "1446524464174071973",
+      "current": "busy",
+      "color": 15727871,
+      "channelNames": {
+        "open": "┏・🟢︰𝗢𝗣𝗘𝗡",
+        "busy": "┏・🟡︰𝗕𝗨𝗦𝗬",
+        "close": "┏・🔴︰𝗖𝗟𝗢𝗦𝗘"
+      },
+      "states": {
+        "open": {
+          "title": "<:Ts_25_discord_high:1397709746877890600> STATUS : OPEN",
+          "thumbnail": "https://img2.pic.in.th/pic/ASee4f45562ffb2f3a.gif",
+          "image": "https://img5.pic.in.th/file/secure-sv1/open5c87d9bfcc980c0a.png",
+          "fieldName": " <:Ts_10_discord_Clock:1397694191429095675> เวลาทำการ",
+          "fieldValue": "```\n• จันทร์ - ศุกร์   : 10:00 - 21:00 น.  \n• เสาร์ - อาทิตย์ : 10:00 - 24:00 น.\n```"
+        },
+        "busy": {
+          "title": "<:Ts_25_discord_medium:1397709761230802984> STATUS : BUSY",
+          "thumbnail": "https://img2.pic.in.th/pic/ASee4f45562ffb2f3a.gif",
+          "image": "https://img5.pic.in.th/file/secure-sv1/busy.png",
+          "fieldName": " <:Ts_12_discord_abane:1397694204863315998> แจ้งเตือน",
+          "fieldValue": "```\n• ทางร้านไม่มี Admin คอยดูแล\n\n```"
+        },
+        "close": {
+          "title": "<:Ts_25_discord_low:1397709773696401500>  STATUS : CLOSE",
+          "thumbnail": "https://img2.pic.in.th/pic/ASee4f45562ffb2f3a.gif",
+          "image": "https://img2.pic.in.th/pic/close118cc89f54cbfefb.png",
+          "fieldName": " <:Ts_12_discord_bbane:1397694208969543720> แจ้งเตือน",
+          "fieldValue": "```\n• Admin จะตอบในเวลาทำการ\n```"
+        }
+      }
     }
   }
 }
