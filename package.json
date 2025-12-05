@@ -1,0 +1,20 @@
+{
+  "name": "snowwhite-moderator",
+  "version": "1.0.0",
+  "description": "Discord Bot for moderation - SnowWhite Moderator",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": ["discord", "bot", "moderator"],
+  "author": "Fujipp",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
