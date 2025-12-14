@@ -12,7 +12,7 @@
     "creditReply": {
       "enabled": true,
       "channelId": "1397717677174161580",
-      "messageCount": 17,
+      "messageCount": 831,
       "defaultRoleId": "1397614918731038870",
       "reactions": [
         "<:Ts_22_discord_4plus:1397892632960831548>",
@@ -20,12 +20,12 @@
       ],
       "replyMessage": "<a:Ts_29_discord_star7:1399003266725052510> **𝖳𝗁𝖺𝗇𝗄 𝗒𝗈𝗎 𝖿𝗈𝗋 support ܁ . ⊹**",
       "deleteOldReply": true,
-      "lastBotMessageId": "1446427129851154493"
+      "lastBotMessageId": "1448270833444192329"
     },
     "status": {
       "channelId": "1397715231920357376",
       "messageId": "1446524464174071973",
-      "current": "close",
+      "current": "open",
       "color": 15727871,
       "channelNames": {
         "open": "┏・🟢︰𝗢𝗣𝗘𝗡",

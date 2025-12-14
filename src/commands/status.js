@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, MessageFlags } = require('discord.js');
 const configManager = require('../utils/configManager');
 const { isAuthorized } = require('../utils/permissions');
 
@@ -85,7 +85,7 @@ module.exports = {
       ensureAuthorized(interaction);
     } catch (err) {
       if (err.message === 'NOT_AUTHORIZED') {
-        return interaction.reply({ content: '❌ You are not allowed to use this command.', ephemeral: true });
+        return interaction.reply({ content: '❌ You are not allowed to use this command.', flags: MessageFlags.Ephemeral });
       }
       throw err;
     }
@@ -93,14 +93,14 @@ module.exports = {
     const state = interaction.options.getString('state');
     const statusConfig = configManager.get(STATUS_PATH) || {};
     if (!STATUS_STATES.includes(state)) {
-      return interaction.reply({ content: '❌ Invalid state.', ephemeral: true });
+      return interaction.reply({ content: '❌ Invalid state.', flags: MessageFlags.Ephemeral });
     }
 
     try {
       await editStatusMessage(interaction.client, state, statusConfig);
       await interaction.reply({
         content: `✅ Status set to **${state.toUpperCase()}**.`,
-        ephemeral: true
+        flags: MessageFlags.Ephemeral
       });
     } catch (error) {
       let message = '❌ Failed to update status.';
@@ -108,7 +108,7 @@ module.exports = {
       if (error.message === 'INVALID_CHANNEL') message = '❌ Configured channel is invalid.';
       if (error.message === 'MISSING_MESSAGE') message = '❌ Target message not found.';
       if (error.message === 'INVALID_STATE') message = '❌ Status template missing.';
-      await interaction.reply({ content: message, ephemeral: true });
+      await interaction.reply({ content: message, flags: MessageFlags.Ephemeral });
     }
   }
 };

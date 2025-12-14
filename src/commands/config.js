@@ -4,6 +4,7 @@ const {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
+  MessageFlags,
   ModalBuilder,
   TextInputBuilder,
   TextInputStyle
@@ -315,7 +316,7 @@ async function refresh(interaction, view = 'credit') {
   const components = buildRows(view);
 
   if (interaction.isButton?.() || interaction.isModalSubmit?.()) {
-    return interaction.update ? interaction.update({ embeds: [embed], components, ephemeral: true }) : null;
+    return interaction.update ? interaction.update({ embeds: [embed], components }) : null;
   }
 
   return interaction.editReply({ embeds: [embed], components });
@@ -336,7 +337,7 @@ function replyWithPanel(interaction, content) {
     content,
     embeds: [embed],
     components,
-    ephemeral: true
+    flags: MessageFlags.Ephemeral
   });
 }
 
@@ -350,14 +351,14 @@ module.exports = {
       ensureAuthorized(interaction);
     } catch (err) {
       if (err.message === 'NOT_AUTHORIZED') {
-        return interaction.reply({ content: '❌ You are not allowed to use this command.', ephemeral: true });
+        return interaction.reply({ content: '❌ You are not allowed to use this command.', flags: MessageFlags.Ephemeral });
       }
       throw err;
     }
 
     const embed = buildEmbed();
     const components = buildRows('home');
-    await interaction.reply({ embeds: [embed], components, ephemeral: true });
+    await interaction.reply({ embeds: [embed], components, flags: MessageFlags.Ephemeral });
   },
 
   async handleButton(interaction) {
@@ -365,7 +366,7 @@ module.exports = {
       ensureAuthorized(interaction);
     } catch (err) {
       if (err.message === 'NOT_AUTHORIZED') {
-        return interaction.reply({ content: '❌ You are not allowed to use this.', ephemeral: true });
+        return interaction.reply({ content: '❌ You are not allowed to use this.', flags: MessageFlags.Ephemeral });
       }
       throw err;
     }
@@ -706,7 +707,7 @@ module.exports = {
         return interaction.showModal(modal);
       }
       default:
-        return interaction.reply({ content: 'Unknown action.', ephemeral: true });
+        return interaction.reply({ content: 'Unknown action.', flags: MessageFlags.Ephemeral });
     }
   },
 
@@ -715,7 +716,7 @@ module.exports = {
       ensureAuthorized(interaction);
     } catch (err) {
       if (err.message === 'NOT_AUTHORIZED') {
-        return interaction.reply({ content: '❌ You are not allowed to use this.', ephemeral: true });
+        return interaction.reply({ content: '❌ You are not allowed to use this.', flags: MessageFlags.Ephemeral });
       }
       throw err;
     }
@@ -728,7 +729,7 @@ module.exports = {
     if (id === 'modal_set_channel') {
       const value = interaction.fields.getTextInputValue('channel');
       if (!/^\d+$/.test(value)) {
-        return interaction.reply({ content: '❌ Invalid channel ID.', ephemeral: true });
+        return interaction.reply({ content: '❌ Invalid channel ID.', flags: MessageFlags.Ephemeral });
       }
       await interaction.deferUpdate();
       await configManager.set(`${creditPath}.channelId`, value);
@@ -739,7 +740,7 @@ module.exports = {
     if (id === 'modal_status_set_channel') {
       const value = interaction.fields.getTextInputValue('channel');
       if (!/^\d+$/.test(value)) {
-        return interaction.reply({ content: '❌ Invalid channel ID.', ephemeral: true });
+        return interaction.reply({ content: '❌ Invalid channel ID.', flags: MessageFlags.Ephemeral });
       }
       await interaction.deferUpdate();
       await configManager.set(`${statusPath}.channelId`, value);
@@ -750,7 +751,7 @@ module.exports = {
     if (id === 'modal_status_set_message') {
       const value = interaction.fields.getTextInputValue('message');
       if (!/^\d+$/.test(value)) {
-        return interaction.reply({ content: '❌ Invalid message ID.', ephemeral: true });
+        return interaction.reply({ content: '❌ Invalid message ID.', flags: MessageFlags.Ephemeral });
       }
       await interaction.deferUpdate();
       await configManager.set(`${statusPath}.messageId`, value);
@@ -761,7 +762,7 @@ module.exports = {
     if (id === 'modal_set_role') {
       const value = interaction.fields.getTextInputValue('role');
       if (!/^\d+$/.test(value)) {
-        return interaction.reply({ content: '❌ Invalid role ID.', ephemeral: true });
+        return interaction.reply({ content: '❌ Invalid role ID.', flags: MessageFlags.Ephemeral });
       }
       await interaction.deferUpdate();
       await configManager.set(`${creditPath}.defaultRoleId`, value);
@@ -799,7 +800,7 @@ module.exports = {
     if (id === 'modal_set_count') {
       const value = interaction.fields.getTextInputValue('count');
       if (!/^\d+$/.test(value)) {
-        return interaction.reply({ content: '❌ Count must be a number.', ephemeral: true });
+        return interaction.reply({ content: '❌ Count must be a number.', flags: MessageFlags.Ephemeral });
       }
       await interaction.deferUpdate();
       await configManager.set(`${creditPath}.messageCount`, Number(value));
@@ -810,7 +811,7 @@ module.exports = {
     if (id === 'modal_add_role_access') {
       const value = interaction.fields.getTextInputValue('role');
       if (!/^\d+$/.test(value)) {
-        return interaction.reply({ content: '❌ Invalid role ID.', ephemeral: true });
+        return interaction.reply({ content: '❌ Invalid role ID.', flags: MessageFlags.Ephemeral });
       }
       const list = asList(configManager.get(`${permsPath}.allowedRoles`));
       if (!list.includes(value)) list.push(value);
@@ -823,7 +824,7 @@ module.exports = {
     if (id === 'modal_add_user_access') {
       const value = interaction.fields.getTextInputValue('user');
       if (!/^\d+$/.test(value)) {
-        return interaction.reply({ content: '❌ Invalid user ID.', ephemeral: true });
+        return interaction.reply({ content: '❌ Invalid user ID.', flags: MessageFlags.Ephemeral });
       }
       const list = asList(configManager.get(`${permsPath}.allowedUsers`));
       if (!list.includes(value)) list.push(value);
@@ -859,6 +860,6 @@ module.exports = {
       return;
     }
 
-    return interaction.reply({ content: 'Unknown modal.', ephemeral: true });
+    return interaction.reply({ content: 'Unknown modal.', flags: MessageFlags.Ephemeral });
   }
 };
