@@ -30,7 +30,7 @@ module.exports = {
     }
 
     // 4) Rename channel to match counter
-    const targetName = `┣・⭐ㆍcredit｜${nextCount}`;
+    const targetName = `┣・⭐︰credit｜${nextCount}`;
     if (message.channel.name !== targetName) {
       await message.channel.setName(targetName).catch(() => {});
     }

@@ -6,7 +6,7 @@ const chalk = typeof chalkPackage.default === 'function' ? chalkPackage.default 
 
 function displayStartupMessage() {
   console.clear();
-  figlet.text('SnowWhite', {
+  figlet.text('BABYDEV', {
     horizontalLayout: 'default',
     verticalLayout: 'default'
   }, (err, data) => {

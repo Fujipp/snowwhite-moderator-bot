@@ -1,20 +1,26 @@
+// Load environment variables FIRST
+require('dotenv').config();
+
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const { displayStartupMessage } = require('./utils/banner');
-require('dotenv').config();
+const { initDb } = require('../db/client');
+
+// Initialize database
+initDb().catch(err => console.error('DB init error:', err));
 
 // Display startup message
 displayStartupMessage();
 
-const client = new Client({ 
+const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.DirectMessages,
     GatewayIntentBits.MessageContent
-  ] 
+  ]
 });
 
 // Commands collection

@@ -11,22 +11,23 @@
   "features": {
     "creditReply": {
       "enabled": true,
-      "channelId": "1397717677174161580",
-      "messageCount": 831,
+      "channelId": "1464941112295817338",
+      "messageCount": 868,
       "defaultRoleId": "1397614918731038870",
       "reactions": [
         "<:Ts_22_discord_4plus:1397892632960831548>",
-        "<a:Ts_29_discord_star8:1399003269216469133>"
+        "<a:Ts_29_discord_star8:1399003269216469133>",
+        "<:KN_ROLE_01:1464919795953827900>"
       ],
-      "replyMessage": "<a:Ts_29_discord_star7:1399003266725052510> **𝖳𝗁𝖺𝗇𝗄 𝗒𝗈𝗎 𝖿𝗈𝗋 support ܁ . ⊹**",
+      "replyMessage": "<a:Ts_29_discord_star2:1399003255270543500> **𝖳𝗁𝖺𝗇𝗄 𝗒𝗈𝗎 𝖿𝗈𝗋 all your support ܁ . ⊹**",
       "deleteOldReply": true,
-      "lastBotMessageId": "1448270833444192329"
+      "lastBotMessageId": "1468570053665620151"
     },
     "status": {
       "channelId": "1397715231920357376",
       "messageId": "1446524464174071973",
       "current": "open",
-      "color": 15727871,
+      "color": 15902662,
       "channelNames": {
         "open": "┏・🟢︰𝗢𝗣𝗘𝗡",
         "busy": "┏・🟡︰𝗕𝗨𝗦𝗬",
@@ -35,22 +36,19 @@
       "states": {
         "open": {
           "title": "<:Ts_25_discord_high:1397709746877890600> STATUS : OPEN",
-          "thumbnail": "https://img2.pic.in.th/pic/ASee4f45562ffb2f3a.gif",
-          "image": "https://img5.pic.in.th/file/secure-sv1/open5c87d9bfcc980c0a.png",
+          "image": "https://img2.pic.in.th/1b378612db2d1cf0f.png",
           "fieldName": " <:Ts_10_discord_Clock:1397694191429095675> เวลาทำการ",
-          "fieldValue": "```\n• จันทร์ - ศุกร์   : 10:00 - 21:00 น.  \n• เสาร์ - อาทิตย์ : 10:00 - 24:00 น.\n```"
+          "fieldValue": "```\n• จันทร์ - ศุกร์   : 12:00 - 00:00 น.  \n• เสาร์ - อาทิตย์ : 12:00 - 01:00 น.\n```"
         },
         "busy": {
           "title": "<:Ts_25_discord_medium:1397709761230802984> STATUS : BUSY",
-          "thumbnail": "https://img2.pic.in.th/pic/ASee4f45562ffb2f3a.gif",
-          "image": "https://img5.pic.in.th/file/secure-sv1/busy.png",
+          "image": "https://img2.pic.in.th/340f5f5107a9b216a.png",
           "fieldName": " <:Ts_12_discord_abane:1397694204863315998> แจ้งเตือน",
-          "fieldValue": "```\n• ทางร้านไม่มี Admin คอยดูแล\n\n```"
+          "fieldValue": "```\n• ตอนนี้ทางร้านไม่มี Admin คอยดูแล\n\n```"
         },
         "close": {
           "title": "<:Ts_25_discord_low:1397709773696401500>  STATUS : CLOSE",
-          "thumbnail": "https://img2.pic.in.th/pic/ASee4f45562ffb2f3a.gif",
-          "image": "https://img2.pic.in.th/pic/close118cc89f54cbfefb.png",
+          "image": "https://img5.pic.in.th/file/secure-sv1/2c578edf8fac5f50c.png",
           "fieldName": " <:Ts_12_discord_bbane:1397694208969543720> แจ้งเตือน",
           "fieldValue": "```\n• Admin จะตอบในเวลาทำการ\n```"
         }
